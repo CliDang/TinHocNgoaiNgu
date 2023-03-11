@@ -127,9 +127,9 @@ var datepicker_config = { 'startDate' : '27-2-1943',
                         </div>
                    </div>
                     <div class="form-group col-6">
-                        <label for="mdc" class="col-6 control-label">Mã đặt chỗ: <span class="required">(*)</span></label>
+                        <label for="mdc" class="col-6 control-label">Mã thí sinh: <span class="required">(*)</span></label>
                         <div class="col-6 f-input">
-                            <input type="text" class="form-control" name="mdc" id="mdc"  placeholder="Nhập mã đặt chỗ" value="" autocomplete="off" aria-autocomplete="none" />
+                            <input type="text" class="form-control" name="mdc" id="mdc"  placeholder="Nhập mã thí sinh" value="" autocomplete="off" aria-autocomplete="none" />
                         </div>
                    </div>
                    <!--
