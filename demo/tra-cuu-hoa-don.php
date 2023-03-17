@@ -26,11 +26,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
 <body>
 <div class="logo-header no-print">
 <img border="0" alt="" class="lazy" src="images/trungtamngoainguvatinhoc.png" style="display: inline;">
-</div><nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-" style="margin-bottom: 20px;min-height: 40px;z-index:999;">
-    <a class="navbar-brand fa fa-home" href="(index).php"></a> 
-    <span style="padding-left:0px;" id="tech-support" title="Nhấn  vào để xem số điện thoại hỗ trợ">
-        <span>* Điện thoại hỗ trợ *</span>
-    </span>                                                
+</div><nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-" style="margin-bottom: 20px;min-height: 40px;z-index:999;">                         
     <button id="btn-navbars-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbars-menu" aria-controls="navbars-menu" aria-expanded="true" aria-label="Toggle navigation">
         <span class="fa fa-fw fa-bars"></span>
     </button>
@@ -107,29 +103,22 @@ var datepicker_config = { 'startDate' : '27-2-1943',
             </div>
         </div> 
         <div class="main-section main-center main-section-border">        
-            <form class="form-horizontal" method="post" action="/tra-cuu-hoa-don" id="tracuu_frm">
+            <form class="form-horizontal" method="post" action="" id="tracuu_frm">
                 
 
                 <div class="title-section">Thông tin tra cứu:</div>
                 <div class="info1-section">                     
                     <div class="form-group col-12">
-                        <label for="name" class="col-4 control-label">Mã số thuế: </label>
+                        <label for="name" class="col-4 control-label">Mã thí sinh: </label>
                         <div class="col-8 f-input">
-                            <input type="text" class="form-control upper tax-group" name="taxcode" id="taxcode" placeholder="Nhập mã số thuế" value="" autocomplete="off" aria-autocomplete="none" />
+                            <input type="text" class="form-control upper tax-group" name="taxcode" id="taxcode" placeholder="Nhập mã thí sinh" value="" autocomplete="off" aria-autocomplete="none" />
                         </div>
                     </div>
     
                     <div class="form-group col-12">
-                        <label for="birthday" class="col-4 control-label">Hoặc mã nhận hóa đơn: </label>
+                        <label for="birthday" class="col-4 control-label">Hoặc mã hóa đơn: </label>
                         <div class="col-8 f-input">
-                            <input type="text" class="form-control tax-group upper" name="taxcode2" id="taxcode2"  placeholder="Nhập mã nhận hóa đơn" value="" autocomplete="off" aria-autocomplete="none" />
-                        </div>
-                   </div>
-                    <div class="form-group col-12">
-                        <label for="mdc" class="col-4 control-label recaptcha">Mã bảo mật: </label>
-                        <div class="col-8 f-input recaptcha">
-                            <div class="recaptcha-code">8590</div>
-                            <input type="text" class="form-control tax-group upper" name="g-recaptcha-response" id="g-recaptcha-response"  placeholder="Nhập mã bảo mật" value="" autocomplete="off" aria-autocomplete="none" />
+                            <input type="text" class="form-control tax-group upper" name="taxcode2" id="taxcode2"  placeholder="Nhập mã hóa đơn" value="" autocomplete="off" aria-autocomplete="none" />
                         </div>
                    </div>
                     <div class="form-group col-12 button-group">

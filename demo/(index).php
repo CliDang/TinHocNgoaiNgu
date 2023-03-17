@@ -26,8 +26,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
 <body>
 <div class="logo-header no-print">
 <img border="0" alt="" class="lazy" src="images/trungtamngoainguvatinhoc.png" style="display: inline;">
-</div><nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-" style="margin-bottom: 20px;min-height: 40px;z-index:999;">
-    <a class="navbar-brand fa fa-home" href="(index).php"></a>                                               
+</div><nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-" style="margin-bottom: 20px;min-height: 40px;z-index:999;">                                         
     <button id="btn-navbars-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbars-menu" aria-controls="navbars-menu" aria-expanded="true" aria-label="Toggle navigation">
         <span class="fa fa-fw fa-bars"></span>
     </button>
@@ -123,7 +122,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
                 </td>
         
             <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET) thi trên máy tính</td>
-            <td rowspan="2" class="rowg money">0</td>                    
+            <td rowspan="2" class="rowg money">45</td>                    
             
             <td class="rowe">KET - PC (K_PC)</td>
             <td class="rowd money">925.000</td>
@@ -131,7 +130,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
             
             <td class="rowd center signup-btns" groupid=KP - PC" examid="K_PC" date="20-04-2023">
                 
-                    Hết chỗ
+                <a hred="javascript:;" class="signup-single" href="register.php">Đăng kí tự do</a>
                 
             </td>
             
@@ -143,7 +142,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
             
             <td class="rowd center signup-btns" groupid=KP - PC" examid="P_PC" date="20-04-2023">
                 
-                    Hết chỗ
+                <a hred="javascript:;" class="signup-single" href="register.php">Đăng kí tự do</a>
                 
             </td>
             
@@ -155,7 +154,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
                 </td>
         
             <td rowspan="3" class="rowg">Tiếng Anh Thiếu Nhi - (YLE)</td>
-            <td rowspan="3" class="rowg money">0</td>                    
+            <td rowspan="3" class="rowg money">45</td>                    
             
             <td class="rowe">STARTERS (S)</td>
             <td class="rowd money">700.000</td>
@@ -163,7 +162,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
             
             <td class="rowd center signup-btns" groupid=YLE" examid="S" date="22-04-2023">
                 
-                    Hết chỗ
+                <a hred="javascript:;" class="signup-single" href="register.php">Đăng kí tự do</a>
                 
             </td>
             
@@ -175,7 +174,7 @@ var datepicker_config = { 'startDate' : '27-2-1943',
             
             <td class="rowd center signup-btns" groupid=YLE" examid="M" date="22-04-2023">
                 
-                    Hết chỗ
+                <a hred="javascript:;" class="signup-single" href="register.php">Đăng kí tự do</a>
                 
             </td>
             
@@ -187,494 +186,10 @@ var datepicker_config = { 'startDate' : '27-2-1943',
             
             <td class="rowd center signup-btns" groupid=YLE" examid="F" date="22-04-2023">
                 
-                    Hết chỗ
+                <a hred="javascript:;" class="signup-single" href="register.php">Đăng kí tự do</a>
                 
             </td>
-            
-            </tr>            
-        
-            <tr class="row-bg odd">
-                <td rowspan="5" class="rowg center" nowrap>06-05-2023
-                <br><span style="font-weight:normal;">(Thứ bảy)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET)</td>
-            <td rowspan="2" class="rowg money">0</td>                    
-            
-            <td class="rowe">KET (K)</td>
-            <td class="rowd money">925.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="K" date="06-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">PET (P)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="P" date="06-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td rowspan="3" class="rowg">Tiếng Anh Thiếu Nhi - (YLE)</td>
-            <td rowspan="3" class="rowg money">0</td>                    
-            
-            <td class="rowe">STARTERS (S)</td>
-            <td class="rowd money">700.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="S" date="06-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">MOVERS (M)</td>
-            <td class="rowd money">775.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="M" date="06-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">FLYERS (F)</td>
-            <td class="rowd money">850.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="F" date="06-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg even">
-                <td rowspan="5" class="rowg center" nowrap>07-05-2023
-                <br><span style="font-weight:normal;">(Chủ nhật)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET)</td>
-            <td rowspan="2" class="rowg money">0</td>                    
-            
-            <td class="rowe">KET (K)</td>
-            <td class="rowd money">925.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="K" date="07-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">PET (P)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="P" date="07-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td rowspan="3" class="rowg">Tiếng Anh Thiếu Nhi - (YLE)</td>
-            <td rowspan="3" class="rowg money">0</td>                    
-            
-            <td class="rowe">STARTERS (S)</td>
-            <td class="rowd money">700.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="S" date="07-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">MOVERS (M)</td>
-            <td class="rowd money">775.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="M" date="07-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">FLYERS (F)</td>
-            <td class="rowd money">850.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="F" date="07-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg odd">
-                <td rowspan="2" class="rowg center" nowrap>12-05-2023
-                <br><span style="font-weight:normal;">(Thứ sáu)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET) thi trên máy tính</td>
-            <td rowspan="2" class="rowg money">0</td>                    
-            
-            <td class="rowe">KET - PC (K_PC)</td>
-            <td class="rowd money">925.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP - PC" examid="K_PC" date="12-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">PET - PC (P_PC)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP - PC" examid="P_PC" date="12-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg even">
-                <td rowspan="4" class="rowg center" nowrap>13-05-2023
-                <br><span style="font-weight:normal;">(Thứ bảy)</span>
-                </td>
-        
-            <td rowspan="1" class="rowg">Tiếng Anh Tổng Quát (FCE) thi trên máy tính</td>
-            <td rowspan="1" class="rowg money">6</td>                    
-            
-            <td class="rowe">FCE - PC (FCE_PC)</td>
-            <td class="rowd money">1.660.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=FCE - PC" examid="FCE_PC" date="13-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td rowspan="3" class="rowg">Tiếng Anh Thiếu Nhi - (YLE)</td>
-            <td rowspan="3" class="rowg money">0</td>                    
-            
-            <td class="rowe">STARTERS (S)</td>
-            <td class="rowd money">700.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="S" date="13-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">MOVERS (M)</td>
-            <td class="rowd money">775.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="M" date="13-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">FLYERS (F)</td>
-            <td class="rowd money">850.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="F" date="13-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg odd">
-                <td rowspan="3" class="rowg center" nowrap>14-05-2023
-                <br><span style="font-weight:normal;">(Chủ nhật)</span>
-                </td>
-        
-            <td rowspan="3" class="rowg">Tiếng Anh Thiếu Nhi - (YLE)</td>
-            <td rowspan="3" class="rowg money">0</td>                    
-            
-            <td class="rowe">STARTERS (S)</td>
-            <td class="rowd money">700.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="S" date="14-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">MOVERS (M)</td>
-            <td class="rowd money">775.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="M" date="14-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">FLYERS (F)</td>
-            <td class="rowd money">850.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=YLE" examid="F" date="14-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg even">
-                <td rowspan="2" class="rowg center" nowrap>16-05-2023
-                <br><span style="font-weight:normal;">(Thứ ba)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET)</td>
-            <td rowspan="2" class="rowg money">0</td>                    
-            
-            <td class="rowe">KET (K)</td>
-            <td class="rowd money">925.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="K" date="16-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">PET (P)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="P" date="16-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg odd">
-                <td rowspan="2" class="rowg center" nowrap>17-05-2023
-                <br><span style="font-weight:normal;">(Thứ tư)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET)</td>
-            <td rowspan="2" class="rowg money">0</td>                    
-            
-            <td class="rowe">KET (K)</td>
-            <td class="rowd money">925.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="K" date="17-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">PET (P)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="P" date="17-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg even">
-                <td rowspan="2" class="rowg center" nowrap>18-05-2023
-                <br><span style="font-weight:normal;">(Thứ năm)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">Tiếng Anh Tổng Quát (KET-PET)</td>
-            <td rowspan="2" class="rowg money">0</td>                    
-            
-            <td class="rowe">KET (K)</td>
-            <td class="rowd money">925.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="K" date="18-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        <tr class="even">
-            <td class="rowe">PET (P)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=KP" examid="P" date="18-05-2023">
-                
-                    Hết chỗ
-                
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg odd">
-                <td rowspan="6" class="rowg center" nowrap>20-05-2023
-                <br><span style="font-weight:normal;">(Thứ bảy)</span>
-                </td>
-        
-            <td rowspan="2" class="rowg">PTE GENERAL</td>
-            <td rowspan="2" class="rowg money">989</td>                    
-            
-            <td class="rowe">FOUNDATION (FD)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=PTE G" examid="FD" date="20-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">LEVEL 1 (LA)</td>
-            <td class="rowd money">1.000.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=PTE G" examid="LA" date="20-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td rowspan="4" class="rowg">PTE YOUNG LEARNERS</td>
-            <td rowspan="4" class="rowg money">1929</td>                    
-            
-            <td class="rowe">FIRSTWORDS (FW)</td>
-            <td class="rowd money">550.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=PTE Y" examid="FW" date="20-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">SPRINGBOARD (SB)</td>
-            <td class="rowd money">550.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=PTE Y" examid="SB" date="20-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">QUICKMARCH (QM)</td>
-            <td class="rowd money">550.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=PTE Y" examid="QM" date="20-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        <tr class="odd">
-            <td class="rowe">BREAKTHROUGH (BT)</td>
-            <td class="rowd money">550.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=PTE Y" examid="BT" date="20-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
-            </tr>            
-        
-            <tr class="row-bg even">
-                <td rowspan="1" class="rowg center" nowrap>25-05-2023
-                <br><span style="font-weight:normal;">(Thứ năm)</span>
-                </td>
-        
-            <td rowspan="1" class="rowg">Tiếng Anh Tổng Quát (FCE) thi trên máy tính</td>
-            <td rowspan="1" class="rowg money">189</td>                    
-            
-            <td class="rowe">FCE - PC (FCE_PC)</td>
-            <td class="rowd money">1.660.000</td>
-            
-            
-            <td class="rowd center signup-btns" groupid=FCE - PC" examid="FCE_PC" date="25-05-2023">
-                
-                    <a hred="javascript:;" class="signup-single">Cá nhân</a>
-                    <a hred="javascript:;" class="signup-multi">Tổ chức</a>
-                    
-            </td>
-            
+
             </tr>            
         
 </table>

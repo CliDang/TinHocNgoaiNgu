@@ -21,11 +21,7 @@
 <body>
 <div class="logo-header no-print">
 <img border="0" alt="" class="lazy" src="images/trungtamngoainguvatinhoc.png" style="display: inline;">
-</div><nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-" style="margin-bottom: 20px;min-height: 40px;z-index:999;">
-    <a class="navbar-brand fa fa-home" href="#"></a> 
-    <span style="padding-left:0px;" id="tech-support" title="Nhấn  vào để xem số điện thoại hỗ trợ">
-        <span>* Điện thoại hỗ trợ *</span>
-    </span>                                                
+</div><nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top-" style="margin-bottom: 20px;min-height: 40px;z-index:999;">                                             
     <button id="btn-navbars-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbars-menu" aria-controls="navbars-menu" aria-expanded="true" aria-label="Toggle navigation">
         <span class="fa fa-fw fa-bars"></span>
     </button>
