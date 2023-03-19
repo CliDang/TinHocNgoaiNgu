@@ -1,5 +1,6 @@
 <?php
 $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
+
 ?>
 
 
@@ -14,7 +15,7 @@ $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
   <body id="html2pdf">
     <header class="clearfix">
       <div id="logo">
-        <img src="images/logo1.png">
+        <img src="images/logo.png">
       </div>
       <h1>HÓA ĐƠN</h1>
       <div id="company" class="clearfix">
@@ -24,61 +25,49 @@ $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
         <div><a href="mailto:company@example.com">ttngoaingutinhocsgdhcm@gmail.com</a></div>
       </div>
       <div id="project">
-        <!-- <div><span>Tên Thí Sinh</span> John Doe</div>
-        <div><span>Địa Chỉ</span> 796 Silver Harbour, TX 79273, US</div>
-        <div><span>EMAIL</span> <a href="mailto:john@example.com">john@example.com</a></div>
-        <div><span>SDT</span> August 17, 2015</div>
-        <div><span>Ngày</span> September 17, 2015</div> -->
          <?php
          if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $maHoaDon = $_POST["taxcode2"];
-          $maTS =  $_POST["taxcode"];
-          if($maHoaDon){
+          $madatve = $_POST["taxcode2"];    
+          $SDT =  $_POST["taxcode"];
+          if($madatve){
             $sql = "SELECT *
-            FROM hoadon
-            JOIN capdo_hoadon
-            ON hoadon.MaHoaDon = capdo_hoadon.FK_MaHoaDon
-            JOIN capdo
-            ON capdo.CapDo_id = capdo_hoadon.Fk_CapDoID
-            JOIN thisinh
-            ON thisinh.ThiSinh_id = hoadon.FK_ThiSinhID
-            WHERE hoadon.MaHoaDon = $maHoaDon
-            ";
+            FROM thisinh t1                                
+            JOIN thisinhchungchi t2 ON t1.ThiSinh_id = t2.ThiSinh_Id
+            JOIN chungchi t3 ON t2.ChungChi_id = t3.ChungChi_id
+            JOIN capdo t4 ON t3.CapDo_id = t4.CapDo_id
+            JOIN capdo_hoadon t5 ON t4.CapDo_id = t5.Fk_CapDoID
+            JOIN hoadon t6 ON t5.FK_MaHoaDon = t6.MaHoaDon
+            WHERE t2.madatve = '$madatve' ";
             $result = $mysqli->query($sql);
           
             $rows = mysqli_num_rows($result); 
             // Lấy số hàng trả về
             
-             if ($rows) {
-              while ($row = mysqli_fetch_array($result)) { 
+        
+              while ($row = $result->fetch_assoc()) { 
                 echo  "<div><span>Tên Thí Sinh</span>".  $row["TenThiSinh"] . "</div>";
                 echo  "<div><span>Ngày Sinh</span>" . $row["NgaySinh"]. "US</div>";
                 echo "<div><span>EMAIL</span>" . $row["Email"]. "US</div>";
-                echo "<div><span>SDT </span>" . $row["Sdt"]. "</div>";
-                  
-                                                                                                                                                                                                                                                                                                                                 
+                echo "<div><span>SDT </span>" . $row["Sdt"]. "</div>";                                                                                                                                                                                                                                                                              
             } 
-          }
+    
           } 
-          if($maTS){
+          if($SDT){
             $sql = "SELECT *
-            FROM hoadon
-            JOIN capdo_hoadon
-            ON hoadon.MaHoaDon = capdo_hoadon.FK_MaHoaDon
-            JOIN capdo
-            ON capdo.CapDo_id = capdo_hoadon.Fk_CapDoID
-            JOIN thisinh
-            ON thisinh.ThiSinh_id = hoadon.FK_ThiSinhID
-            WHERE thisinh.ThiSinh_id = $maTS
-            ";
+            FROM thisinh t1                                
+            JOIN thisinhchungchi t2 ON t1.ThiSinh_id = t2.ThiSinh_Id
+            JOIN chungchi t3 ON t2.ChungChi_id = t3.ChungChi_id
+            JOIN capdo t4 ON t3.CapDo_id = t4.CapDo_id
+            JOIN capdo_hoadon t5 ON t4.CapDo_id = t5.Fk_CapDoID
+            JOIN hoadon t6 ON t5.FK_MaHoaDon = t6.MaHoaDon
+            WHERE t1.Sdt = '$SDT' ";
             $result = $mysqli->query($sql);
           
             $rows = mysqli_num_rows($result); 
             // Lấy số hàng trả về
           
              if ($rows) {
-              while ($row = mysqli_fetch_array($result)) {
-        
+              while ($row = mysqli_fetch_array($result)) { 
                 echo  "<div><span>Tên Thí Sinh</span>".  $row["TenThiSinh"] . "</div>";
                 echo  "<div><span>Ngày Sinh</span>" . $row["NgaySinh"]. "US</div>";
                 echo "<div><span>EMAIL</span>" . $row["Email"]. "US</div>";
@@ -94,33 +83,27 @@ $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
       <table>
         <thead>
           <tr>
-            <th class="service">Mã Hóa Đơn</th>
             <th class="desc">CẤP ĐỘ</th>
             <th class="unit">Mã Số Thuế</th>
             <th class="total">Tổng Tiền</th>
           </tr>
         </thead>
         <tbody>
-         
-
-
                 
 <?php
 //Khi người dùng bấm tra cứu 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $maHoaDon = $_POST["taxcode2"];
-  $maTS =  $_POST["taxcode"];
-  if($maHoaDon){
+  $madatve = $_POST["taxcode2"];    
+  $maSoThue =  $_POST["taxcode"];
+  if($madatve){
     $sql = "SELECT *
-    FROM hoadon
-    JOIN capdo_hoadon
-    ON hoadon.MaHoaDon = capdo_hoadon.FK_MaHoaDon
-    JOIN capdo
-    ON capdo.CapDo_id = capdo_hoadon.Fk_CapDoID
-    JOIN thisinh
-    ON thisinh.ThiSinh_id = hoadon.FK_ThiSinhID
-    WHERE hoadon.MaHoaDon = $maHoaDon
-    ";
+    FROM thisinh t1                                
+    JOIN thisinhchungchi t2 ON t1.ThiSinh_id = t2.ThiSinh_Id
+    JOIN chungchi t3 ON t2.ChungChi_id = t3.ChungChi_id
+    JOIN capdo t4 ON t3.CapDo_id = t4.CapDo_id
+    JOIN capdo_hoadon t5 ON t4.CapDo_id = t5.Fk_CapDoID
+    JOIN hoadon t6 ON t5.FK_MaHoaDon = t6.MaHoaDon
+    WHERE t2.madatve = '$madatve' ";
     $result = $mysqli->query($sql);
   
     $rows = mysqli_num_rows($result); 
@@ -128,7 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
      if ($rows) {
       while ($row = mysqli_fetch_array($result)) {   echo "<tr>";
-        echo "<td class='service'>" .  $row['MaHoaDon'] . "</td>";
         echo "<td class='desc'>" . $row["TenCapDo"] . "</td>";
         echo "<td class='qty'>" . $row["MaSoThue"] . "</td>";
         echo "<td class='total'>" . $row["TongTien"] . "</td>";
@@ -137,17 +119,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
   }
   } 
-  if($maTS){
+  if($SDT){
     $sql = "SELECT *
-    FROM hoadon
-    JOIN capdo_hoadon
-    ON hoadon.MaHoaDon = capdo_hoadon.FK_MaHoaDon
-    JOIN capdo
-    ON capdo.CapDo_id = capdo_hoadon.Fk_CapDoID
-    JOIN thisinh
-    ON thisinh.ThiSinh_id = hoadon.FK_ThiSinhID
-    WHERE thisinh.ThiSinh_id = $maTS
-    ";
+    FROM thisinh t1                                
+    JOIN thisinhchungchi t2 ON t1.ThiSinh_id = t2.ThiSinh_Id
+    JOIN chungchi t3 ON t2.ChungChi_id = t3.ChungChi_id
+    JOIN capdo t4 ON t3.CapDo_id = t4.CapDo_id
+    JOIN capdo_hoadon t5 ON t4.CapDo_id = t5.Fk_CapDoID
+    JOIN hoadon t6 ON t5.FK_MaHoaDon = t6.MaHoaDon
+    WHERE t1.Sdt = '$SDT' ";
     $result = $mysqli->query($sql);
   
     $rows = mysqli_num_rows($result); 
@@ -155,9 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
      if ($rows) {
       while ($row = mysqli_fetch_array($result)) {
-
         echo "<tr>";
-        echo "<td class='service'>" .  $row['MaHoaDon'] . "</td>";
         echo "<td class='desc'>" . $row["TenCapDo"] . "</td>";
         echo "<td class='qty'>" . $row["MaSoThue"] . "</td>";
         echo "<td class='total'>" . $row["TongTien"] . "</td>";
@@ -183,6 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       Invoice was created on a computer and is valid without the signature and seal.
     </footer>
     <script>
+
       let htmlPDF = document.getElementById("html2pdf");
       let exportPDF = document.getElementById("exportPDF");
       exportPDF.onclick = (e) => html2pdf(htmlPDF);
@@ -190,4 +169,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </script>
   </body>
 </html>
-

@@ -202,6 +202,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     }
-}
+    // hoa don 
+    $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sql = "SELECT *
+    FROM thisinh t1
+    JOIN thisinhchungchi t2 ON t1.ThiSinh_id = t2.ThiSinh_Id
+    JOIN chungchi t3 ON t2.ChungChi_id = t3.ChungChi_id
+    JOIN capdo t4 ON t3.CapDo_id = t4.CapDo_id
+    WHERE t2.madatve 
+        AND NOT EXISTS (
+            SELECT 1
+            FROM hoadon h
+            WHERE h.FK_ThiSinhID = t1.ThiSinh_id
+        )";
+    $result = $mysqli->query($sql);
 
+    while ($row = $result->fetch_assoc()) {
+    $value1 = "Hóa Đơn" . $row['TenCapDo'];
+    $value2 = strval(rand(0, 777777));
+    $value3 = $row['Gia'];
+    $value4 = $row['ThiSinh_id'];
+    $sql = "INSERT IGNORE INTO hoadon (TenHoaDon, MaSoThue, TongTien, FK_ThiSinhID) 
+    VALUES ('$value1', '$value2', '$value3', '$value4')"
+    ;
+    $mysqli->query($sql);
+    }
+    }
+    $mysqli->close();
+}
 ?>

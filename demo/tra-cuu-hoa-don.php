@@ -114,16 +114,16 @@ var datepicker_config = { 'startDate' : '27-2-1943',
                 <div class="title-section">Thông tin tra cứu:</div>
                 <div class="info1-section">                     
                     <div class="form-group col-12" >
-                        <label for="name" class="col-4 control-label">Mã thí sinh: </label>
+                        <label for="name" class="col-4 control-label">Số Điện Thoại: </label>
                         <div class="col-8 f-input">
-                            <input type="text" class="form-control upper tax-group" name="taxcode" id="taxcode" placeholder="Nhập mã thí sinh" value="" autocomplete="off" aria-autocomplete="none" />
+                            <input type="text" class="form-control upper tax-group" name="taxcode" id="taxcode" placeholder="Nhập SDT" value="" autocomplete="off" aria-autocomplete="none" />
                         </div>
                     </div>
     
                     <div class="form-group col-12" method ="post">
-                        <label for="birthday" class="col-4 control-label">Hoặc mã hóa đơn: </label>
+                        <label for="birthday" class="col-4 control-label">Hoặc Mã Đặt Chổ: </label>
                         <div class="col-8 f-input">
-                            <input type="text" class="form-control tax-group upper" name="taxcode2" id="taxcode2"  placeholder="Nhập mã hóa đơn" value="" autocomplete="off" aria-autocomplete="none" />
+                            <input type="text" class="form-control tax-group upper" name="taxcode2" id="taxcode2"  placeholder="Nhập mã đặt chổ" value="" autocomplete="off" aria-autocomplete="none" />
                         </div>
                    </div>
                     <div class="form-group col-12 button-group" >
