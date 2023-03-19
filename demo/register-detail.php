@@ -127,6 +127,8 @@
                 <form class="form-horizontal" method="post" action="" id="tracuu_frm">
 
                     <?php
+                    include 'AntiDDOS.php';
+                    include 'utils.php';
                     if (isset($_POST["mdc"]) && isset($_POST["name"]) && isset($_POST["birthday"])) {
                         $conn = new mysqli('localhost', 'root', '', 'tinhocngoaingu') or die("Connect failed: %s\n" . $conn->error);
 
@@ -140,19 +142,18 @@
                         $ketqua = $conn->query($sql);
 
                         $dem = 0;
+
+                        //code testing zone
                         // while ($row = $ketqua->fetch_assoc()) {
-                        //     if ($_POST["mdc"] == $row["madatve"] && strtoupper($_POST["name"]) == $row["TenThiSinh"] && $_POST["birthday"] == $row["NgaySinh"]){
-                        //         echo "cc";
-                        //         $dem++;
-                        //         break;
-                        //     }
+                        //     echo strtolower(affine_decrypt($row["madatve"]));
                         // }
                         // if ($dem==0){
                         //     echo "tach";
                         // }
-                    
+                            
                         while ($row = $ketqua->fetch_assoc()) {
-                            if ($_POST["mdc"] == $row["madatve"] && strtoupper($_POST["name"]) == $row["TenThiSinh"] && $_POST["birthday"] == $row["NgaySinh"]) {
+                            //echo strtolower(affine_decrypt($row["madatve"]));
+                            if ($_POST["mdc"] == strtolower(affine_decrypt($row["madatve"])) && strtoupper($_POST["name"]) == $row["TenThiSinh"] && $_POST["birthday"] == $row["NgaySinh"]) {
                                 //echo $row["madatve"], "<br/>";
                                 echo "Tên Thí Sinh: " . $row["TenThiSinh"], "<br/>";
                                 echo "Ngày Sinh: " . $row["NgaySinh"], "<br/>";
