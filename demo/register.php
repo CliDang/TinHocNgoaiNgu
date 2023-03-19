@@ -162,14 +162,15 @@
                                 <select name='examdate' id='examdate' class='form-control' data-toggle='tooltip'
                                     title='Chọn ngày kiểm tra từ danh sách'>";
                                         if ($conn != null){
-                                            $sql = "SELECT NgayThi FROM `lichthi` GROUP BY NgayThi";
+                                            $sql = "SELECT LichThi_id, NgayThi FROM `lichthi` GROUP BY NgayThi";
                                             $statement = $conn->prepare($sql);
                                             $statement->execute();
                                             $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
                                             $names = $statement->fetchAll();
                                             foreach($names as $name) {
-                                                $ngay = $name['NgayThi'];   
-                                                echo "<option>$ngay</option>";
+                                                $ngay = $name['NgayThi']; 
+                                                $id = $name['LichThi_id'];  
+                                                echo "<option value='$id'>$ngay</option>";
                                             }
                                         }else 
                                             echo "<option>Something Wrong</option>";

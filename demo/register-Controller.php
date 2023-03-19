@@ -18,6 +18,7 @@
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'andanhtest1@gmail.com';
+            echo $mail->Username;
             $mail->Password = 'byuhwgnjifpzvdsx';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
@@ -30,7 +31,6 @@
             $mail->send();
             return true;
         }catch (Exception $e) {
-            echo "Email không thể gửi";
             return false;
         }
     }
@@ -60,7 +60,7 @@
             //để ghi tiếng việt
             header('Content-Type: text/html; charset=UTF-8');           
             $unique_id = substr(uniqid(), 0 , 10);
-            $examdate = $_POST['examdate'];
+            $examdate_id = $_POST['examdate'];
             $examlevel = $_POST['examlevel'];
             $name = strtoupper(trim($_POST['name']));
             $birthday = $_POST['birthday'];
@@ -68,6 +68,45 @@
             $phone = $_POST['phone'];
             $mail = $_POST['email'];
             $dob = DateTime::createFromFormat('d/m/Y', $birthday);
+            
+            //lấy ngày thi bằng id
+            $getExamdate = "SELECT NgayThi
+                    FROM lichthi
+                    WHERE $examdate_id = LichThi_id";          
+            $statement = $conn->prepare($getExamdate);
+            $statement->execute();
+            $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $examdates = $statement->fetchAll();
+            $examdate = null;
+            foreach($examdates as $i) {
+                $examdate = $i['NgayThi'];
+            }
+
+            //kiểm tra ngày thi và cấp độ có trùng khớp không
+            $chkLT = "SELECT LichThi_id
+                            FROM lichthi
+                            WHERE NgayThi = 
+                            (SELECT NgayThi
+                            FROM lichthi
+                            WHERE $examdate_id = LichThi_id) and
+                            CapDo_id = 
+                            (SELECT CapDo_id 
+                            FROM capdo
+                            WHERE INSTR('{$examlevel}', TenCapDo))";          
+            $statement = $conn->prepare($chkLT);
+            $statement->execute();
+            $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $chkLTs = $statement->fetchAll();
+            $isLT = null;
+            foreach($chkLTs as $i) {
+                $isLT = $i['LichThi_id'];
+            }
+
+            if ($isLT == null)
+            {
+                echo "Không có ngày thi ", $examdate, " của ", $examlevel, ".Vui lòng chọn lại.";
+                exit;
+            }
 
             //kiểm tra tên
             if($name) {
@@ -116,6 +155,17 @@
                     $statement->execute();
                     $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
                     $thisinh = $statement->fetchAll();
+                    
+                    //lấy id thí sinh vừa được thêm
+                    $getTSID = "SELECT * FROM thisinh ORDER BY ThiSinh_id DESC LIMIT 1";
+                    $statement = $conn->prepare($getTSID);
+                    $statement->execute();
+                    $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
+                    $TS_id = $statement->fetchAll();
+                    $ThiSinh_id = null;
+                    foreach($TS_id as $i) {
+                        $ThiSinh_id = $i['ThiSinh_id'];
+                    }
 
                     //lấy id của chứng chỉ được chọn
                     $getCCID = "SELECT ChungChi_id
@@ -132,17 +182,6 @@
                     foreach($id_CC as $i) {
                         $ChungChi_id = $i['ChungChi_id'];
                     }
-                    
-                    //lấy id thí sinh vừa được thêm
-                    $getTSID = "SELECT * FROM thisinh ORDER BY ThiSinh_id DESC LIMIT 1";
-                    $statement = $conn->prepare($getTSID);
-                    $statement->execute();
-                    $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
-                    $TS_id = $statement->fetchAll();
-                    $ThiSinh_id = null;
-                    foreach($TS_id as $i) {
-                        $ThiSinh_id = $i['ThiSinh_id'];
-                    }
 
                     //thêm các trường vào bảng thí sinh chứng chỉ
                     $sqlToTSCC = "INSERT INTO thisinhchungchi (ChungChi_id, NgayDangKy, ThiSinh_id, madatve) VALUES ('{$ChungChi_id}','{$examdate}','{$ThiSinh_id}', '{$unique_id}')";
@@ -150,7 +189,7 @@
                     $statement->execute();
                     $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
                     $thisinhchungchi = $statement->fetchAll();
-                    echo "Đăng ký thành công ";
+                    echo "Đăng ký thành công. Mã đặt chỗ của bạn đã được gửi qua tài khoản mail của bạn vui lòng check!!!";
                 }
             } else {
                 echo "Chưa nhập mail";
