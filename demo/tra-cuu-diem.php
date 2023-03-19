@@ -38,9 +38,8 @@
         exit();
     }
 
-
     if (isset($_POST['tracuu'])) {
-        $name = $_POST['name'];
+        $name = strtoupper($_POST['name']);
         $birthday = $_POST['birthday'];
         $examdate = $_POST['examdate'];
         $level = $_POST['level'];
@@ -50,7 +49,7 @@
         $resultexamdate = mysqli_query($con, $sqlexamdate);
 
 
-
+        
         if ($resultexamdate->num_rows > 0) {
             // output data of each row
             while ($rowexamdate = $resultexamdate->fetch_assoc()) {
@@ -60,18 +59,19 @@
                     if ($resultlevel->num_rows > 0) {
                         while ($rowlevel = $resultlevel->fetch_assoc()) {
                             if ($rowlevel['CapDo_id'] == $level) {
+
+                                $sqlthisinhchungchi = "SELECT Diem,ThiSinh_id FROM thisinhchungchi";
                                 $sqlthisinh = "SELECT ThiSinh_id,TenThiSinh,NgaySinh,GioiTinh FROM thisinh";
                                 $resultthisinh = mysqli_query($con, $sqlthisinh);
-                                $sqlthisinhchungchi = "SELECT Diem,ThiSinh_id FROM thisinhchungchi";
                                 $resultthisinhchungchi = mysqli_query($con, $sqlthisinhchungchi);
                                 if ($resultthisinh->num_rows > 0) {
+                                    $dem = 0;
                                     while ($rowthisinh = $resultthisinh->fetch_assoc()) {
-                                        $Diem = -2;
                                         if ($rowthisinh['TenThiSinh'] == $name && $rowthisinh['NgaySinh'] == $birthday) {
                                             if ($resultthisinhchungchi->num_rows > 0) {
                                                 while ($rowthisinhchungchi = $resultthisinhchungchi->fetch_assoc()) {
                                                     if ($rowthisinh['ThiSinh_id'] == $rowthisinhchungchi['ThiSinh_id']) {
-                                                        if ($rowthisinhchungchi['Diem'] == -1) {
+                                                        if ($rowthisinhchungchi['Diem'] == null) {
                                                             $Diem = 'Chưa có điểm';
                                                         } else if ($rowthisinhchungchi['Diem'] >= 0 && $rowthisinhchungchi['Diem'] <= 10) {
                                                             $Diem = $rowthisinhchungchi['Diem'];
@@ -89,20 +89,18 @@
                                             $CapDo = $rowlevel["TenCapDo"];
                                             $DiemSo = $Diem;
 
-/*
+                                            /*
                                             echo "<!-- The Modal -->
-                        <div class=\"modal\" id=\"myModal\">
-                            <div class=\"modal-dialog\">
-                                <div class=\"modal-content\">
-
-                                    <!-- Modal Header -->
-                                    <div class=\"modal-header\">
-                                        <h4 class=\"modal-title\">Thông tin thí sinh</h4>
-                                        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class=\"modal-body\">";
+                                            <div class=\"modal\" id=\"myModal\">
+                                            <div class=\"modal-dialog\">
+                                            <div class=\"modal-content\">
+                                            <!-- Modal Header -->
+                                            <div class=\"modal-header\">
+                                            <h4 class=\"modal-title\">Thông tin thí sinh</h4>
+                                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div class=\"modal-body\">";
                                             echo "Mã thí sinh: " . $MaThiSinh;
                                             echo "<br>";
                                             echo "Tên thí sinh: " . $TenThiSinh;
@@ -113,33 +111,33 @@
                                             echo "<br>";
                                             echo "Điểm số: " . $DiemSo;
                                             echo "</div>
-
-                                    <!-- Modal footer -->
-                                    <div class=\"modal-footer\">
-                                        <button type=\"button\" class=\"btn btn-danger\"
+                                            <!-- Modal footer -->
+                                            <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"btn btn-danger\"
                                             data-bs-dismiss=\"modal\">Close</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>";
-*/
-                                            function_alert($MaThiSinh,$TenThiSinh,$NgaySinh,$GioiTinh,$CapDo,$DiemSo);
-                                        } else
-                                        message_alert('Không có thí sinh bạn cần tìm!');
-                                        break;
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>";
+                                            */
+                                            $dem++;
+                                            function_alert($MaThiSinh, $TenThiSinh, $NgaySinh, $GioiTinh, $CapDo, $DiemSo);
+                                        }
                                     }
-
+                                    if ($dem == 0) {
+                                        echo "Không tìm thấy thí sinh, vui lòng thử lại !!!";
+                                    }
                                 }
                             }
 
                         }
                     } else
-                    message_alert('Không có cấp độ thi nào được tổ chức vào ngày bạn đã điền!');
+                        message_alert('Không có cấp độ thi nào được tổ chức vào ngày bạn đã điền!');
 
                     break;
                 } else
-                message_alert('Không có ngày thi này');
+                    message_alert('Không có ngày thi này');
+                break;
             }
         } else {
             echo "0 results";
@@ -149,7 +147,7 @@
     /**/
 
 
-    function function_alert($a,$b,$c,$d,$e,$f)
+    function function_alert($a, $b, $c, $d, $e, $f)
     {
         echo "<script>alert('Mã thí sinh : $a\\nTên thí sinh : $b\\nNgày Sinh : $c\\nGiới tính : $d\\nCấp độ : $e\\nĐiểm số : $f');
         </script>";

@@ -127,32 +127,43 @@
                 <form class="form-horizontal" method="post" action="" id="tracuu_frm">
 
                     <?php
-                    if (isset($_POST["mdc"]) && isset($_POST["name"]) && isset($_POST["birthday"])){
-                        $conn = new mysqli('localhost', 'root', 'helloworld', 'tinhocngoaingu') or die("Connect failed: %s\n" . $conn->error);
+                    if (isset($_POST["mdc"]) && isset($_POST["name"]) && isset($_POST["birthday"])) {
+                        $conn = new mysqli('localhost', 'root', '', 'tinhocngoaingu') or die("Connect failed: %s\n" . $conn->error);
 
                         // check ket noi
                         if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                         }
-    
+
                         $sql = "SELECT thisinh.TenThiSinh, thisinh.NgaySinh, chungchi.TenChungChi, thisinhchungchi.NgayDangKy, thisinhchungchi.madatve FROM thisinhchungchi, thisinh, chungchi 
                         WHERE thisinhchungchi.ThiSinh_id = thisinh.ThiSinh_id AND thisinhchungchi.ChungChi_id = chungchi.ChungChi_id";
                         $ketqua = $conn->query($sql);
-                        
-                        // 
+
+                        $dem = 0;
+                        // while ($row = $ketqua->fetch_assoc()) {
+                        //     if ($_POST["mdc"] == $row["madatve"] && strtoupper($_POST["name"]) == $row["TenThiSinh"] && $_POST["birthday"] == $row["NgaySinh"]){
+                        //         echo "cc";
+                        //         $dem++;
+                        //         break;
+                        //     }
+                        // }
+                        // if ($dem==0){
+                        //     echo "tach";
+                        // }
+                    
                         while ($row = $ketqua->fetch_assoc()) {
-                            if ($_POST["mdc"] == $row["madatve"] && $_POST["name"] == $row["TenThiSinh"] && $_POST["birthday"] == $row["NgaySinh"]) {
+                            if ($_POST["mdc"] == $row["madatve"] && strtoupper($_POST["name"]) == $row["TenThiSinh"] && $_POST["birthday"] == $row["NgaySinh"]) {
                                 //echo $row["madatve"], "<br/>";
-                                echo "Tên Thí Sinh: ".$row["TenThiSinh"], "<br/>";
-                                echo "Ngày Sinh: ".$row["NgaySinh"], "<br/>";
-                                echo "Tên Chứng Chỉ: ".$row["TenChungChi"], "<br/>";
-                                echo "Ngày Thi: ".$row["NgayDangKy"], "<br/>";
+                                echo "Tên Thí Sinh: " . $row["TenThiSinh"], "<br/>";
+                                echo "Ngày Sinh: " . $row["NgaySinh"], "<br/>";
+                                echo "Tên Chứng Chỉ: " . $row["TenChungChi"], "<br/>";
+                                echo "Ngày Thi: " . $row["NgayDangKy"], "<br/>";
+                                $dem++;
                                 break;
                             }
-                            else{
-                                echo "Không tìm thấy thí sinh muốn tìm. Vui thử lại!!!";
-                                break;
-                            } 
+                        }
+                        if ($dem == 0) {
+                            echo "Không tìm thấy thí sinh, vui lòng thử lại !!!";
                         }
                         $conn->close();
                     }

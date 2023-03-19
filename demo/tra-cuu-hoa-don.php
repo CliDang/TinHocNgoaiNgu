@@ -111,7 +111,6 @@ var datepicker_config = { 'startDate' : '27-2-1943',
         <div class="main-section main-center main-section-border">        
             <form class="form-horizontal" action="xuLyHoaDon.php" id="tracuu_frm"  method="post">
                 
-    ///////////////////////////////////////////////////////////////////////
                 <div class="title-section">Thông tin tra cứu:</div>
                 <div class="info1-section">                     
                     <div class="form-group col-12" >
