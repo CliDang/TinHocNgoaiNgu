@@ -30,7 +30,8 @@
 
 
     <?php
-    $con = mysqli_connect("localhost", "root", "", "tinhocngoaingu");
+    //$con = mysqli_connect("localhost", "root", 'WEYEBIPAGI', "tinhocngoaingu");
+    $con = mysqli_connect('localhost', 'root', '', 'tinhocngoaingu');
 
     // Check connection
     if ($con->connect_errno) {

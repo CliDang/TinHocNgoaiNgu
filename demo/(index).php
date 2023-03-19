@@ -28,6 +28,9 @@
 </head>
 
 <body>
+    <?php
+    include 'AntiDDOS.php';
+    ?>
     <div class="logo-header no-print">
         <img border="0" alt="" class="lazy" src="images/trungtamngoainguvatinhoc.png" style="display: inline;">
     </div>

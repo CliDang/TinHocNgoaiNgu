@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Hàm gửi mail tới thí sinh
-function sendMail($email, $madatcho)
+function sendMail($email, $madatcho, $name)
 {
 
     require 'PHPMailer-master/src/Exception.php';
@@ -24,7 +24,7 @@ function sendMail($email, $madatcho)
         $mail->Port = 587;
 
         $mail->setFrom('andanhtest1@gmail.com', 'NgoaiNguTinHoc');
-        $mail->addAddress($email, 'Hau Nguyen');
+        $mail->addAddress($email, $name);
         $mail->Subject = "TRUNG TAM NGOAI NGU TIN HOC - DANG KY THANH CONG";
         $mail->Body = "CẢM ƠN BẠN ĐÃ ĐĂNG KÝ Ở TRUNG TÂM NGOẠI NGỮ TIN HỌC CHÚNG TỐI. ĐÂY LÀ MÃ ĐẶT CHỖ CỦA BẠN: $madatcho";
         $mail->AltBody = "ABC";
@@ -56,6 +56,7 @@ function is_phone_number($text)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //nạp kết nối
     include('connection.php');
+    include('utils.php');
     //kiểm tra kết nối
     if ($conn != null) {
         //để ghi tiếng việt
@@ -137,19 +138,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         }
-
+        
         //kiểm tra nhập vào có phải mail ko 
         if ($mail) {
             if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                 echo "Nhập sai định dạng email";
                 exit;
             } else {
-                if (!sendMail($mail, $unique_id)) {
+                if (!sendMail($mail, $unique_id, $name)) {
                     echo "Mail không gửi được!!!";
                     exit;
                 }
                 //Thêm thí sinh mới vào bảng thí sinh    
-                $sql = "INSERT INTO thisinh (TenThiSinh, NgaySinh, GioiTinh, Email, Sdt) VALUES ('{$name}', '{$dob}', '{$sex}', '{$mail}', '{$phone}')";
+                $temp = affine_encrypt(strtoupper($mail));
+                $sql = "INSERT INTO thisinh (TenThiSinh, NgaySinh, GioiTinh, Email, Sdt) VALUES ('{$name}', '{$dob}', '{$sex}', '{$temp}', '{$phone}')";
                 $statement = $conn->prepare($sql);
                 $statement->execute();
                 $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -181,9 +183,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 foreach ($id_CC as $i) {
                     $ChungChi_id = $i['ChungChi_id'];
                 }
-
+                $temp = affine_encrypt(strtoupper($unique_id));
+                echo $unique_id;
                 //thêm các trường vào bảng thí sinh chứng chỉ
-                $sqlToTSCC = "INSERT INTO thisinhchungchi (ChungChi_id, NgayDangKy, ThiSinh_id, madatve) VALUES ('{$ChungChi_id}','{$examdate}','{$ThiSinh_id}', '{$unique_id}')";
+                $sqlToTSCC = "INSERT INTO thisinhchungchi (ChungChi_id, NgayDangKy, ThiSinh_id, madatve) VALUES ('{$ChungChi_id}','{$examdate}','{$ThiSinh_id}', '{$temp}')";
                 $statement = $conn->prepare($sqlToTSCC);
                 $statement->execute();
                 $results = $statement->setFetchMode(PDO::FETCH_ASSOC);
