@@ -18,8 +18,8 @@ function sendMail($email, $madatcho, $name)
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'tachhuhu7373@gmail.com';
-        $mail->Password = 'axaqvggefnjtkfhf';
+        $mail->Username = 'tachhuhu737373@gmail.com';
+        $mail->Password = 'glcrdntwtfyqyuag';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $ChungChi_id = $i['ChungChi_id'];
                 }
                 $temp = affine_encrypt(strtoupper($unique_id));
-                echo $unique_id;
+                //echo $unique_id;
                 //thêm các trường vào bảng thí sinh chứng chỉ
                 $sqlToTSCC = "INSERT INTO thisinhchungchi (ChungChi_id, NgayDangKy, ThiSinh_id, madatve) VALUES ('{$ChungChi_id}','{$examdate}','{$ThiSinh_id}', '{$temp}')";
                 $statement = $conn->prepare($sqlToTSCC);

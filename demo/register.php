@@ -152,6 +152,7 @@
                     
                     <?php
                         include 'connection.php';
+                        
                     echo "
                     <div class='info0-section'>
                         <div class='form-group col-12'>

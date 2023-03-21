@@ -26,8 +26,10 @@ $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
       </div>
       <div id="project">
          <?php
-         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $madatve = $_POST["taxcode2"];    
+         include 'utils.php';
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          
+          $madatve = affine_encrypt(strtoupper($_POST["taxcode2"]));    
           $SDT =  $_POST["taxcode"];
           if($madatve){
             $sql = "SELECT *
@@ -93,7 +95,7 @@ $mysqli = new mysqli("localhost","root","","tinhocngoaingu");
 <?php
 //Khi người dùng bấm tra cứu 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $madatve = $_POST["taxcode2"];    
+  $madatve = affine_encrypt(strtoupper($_POST["taxcode2"]));  
   $maSoThue =  $_POST["taxcode"];
   if($madatve){
     $sql = "SELECT *
